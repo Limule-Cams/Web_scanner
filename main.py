@@ -64,6 +64,6 @@ class Visite(object):
              return []
 
 if __name__ == "__main__":
-    a = Visite("https://google.com", "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0")
+    a = Visite("https://google.com", "your user agent")
     a.get_link()
     a.all_link()
