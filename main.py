@@ -35,7 +35,6 @@ class Visite(object):
     
 
     def get_link(self, url=None):
-        list_link = []
         if url is None:
              url = self.url
         page_source = self.view_page(url)
@@ -53,15 +52,14 @@ class Visite(object):
                                       if "#" in href:
                                            href = href.spit("#")[0]
                                       if href.startswith("/"):
-                                            link_parse.scheme+"://"+link_parse.hostname+href
+                                            href=link_parse.scheme+"://"+link_parse.hostname+href
                                       else:
                                            href = url+"/"+href
-                                      if href is not list_link:
-                                           list_link.append(href)
+                                      if href is not self.all_link:
                                            self.all_link.append(href)
                                            print(href)
                                 
-             return list_link
+             return self.all_link
         else:
              return []
 
